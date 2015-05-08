@@ -1,60 +1,44 @@
 RabbitMQ Examples
 =================
 
-This code examples and Vagrantfile are part of my presentation "Practical Message Queuing with RabbitMQ".
+This code examples and Vagrant VM are part of my presentation "Adding 1.21 Gigawatts to Applications with RabbitMQ".
+
+Prerequisites
+=============
+
+To use the VM as intended you need:
+
+* [Vagrant](http://docs.vagrantup.com/v2/installation/)
+* [Ansible](http://docs.ansible.com/intro_installation.html)
 
 Installation guide (Ubuntu)
 ===========================
 
-Clone the repo and start the VM:
+Clone the repo and start the VM (provisions with ansible):
 
-```
-git clone git@github.com:asgrim/rmq-slides.git
-vagrant up
-```
-
-When it finishes booting:
-
-```
-vagrant ssh
+```shell
+$ git clone git@github.com:asgrim/rmq-slides.git
+$ vagrant up
 ```
 
-Then running the following commands in the VM will set up RabbitMQ:
+When it finishes booting you can open a terminal to the VM using:
 
-```
-echo "deb http://www.rabbitmq.com/debian/ testing main" | sudo tee /etc/apt/source.list.d/rabbitmq.list
-wget http://www.rabbitmq.com/rabbitmq-signing-key-public.asc
-sudo apt-key add rabbitmq-signing-key-public.asc
-sudo apt-get update
-sudo apt-get install rabbitmq-server
+```shell
+$ vagrant ssh
 ```
 
-Management (Web Interface)
---------------------------
+Usage
+=====
 
-To enable management (web interface), you need to:
+Once you're in the VM you can run the demos just like in the presentation, e.g.:
 
+```shell
+$ cd /vagrant/basic
+$ php producer.php
+$ php producer.php
+$ php consumer.php
+my test message
+my test message
+^C
+$
 ```
-echo "[{rabbit, [{loopback_users, []}]}]." | sudo tee /etc/rabbitmq/rabbitmq.config
-rabbitmq-plugins enable rabbitmq_management
-sudo service rabbitmq-server restart
-```
-
-The configuration above will allow "guest" account to log in from anywhere (not just localhost).
-
-PHP
----
-
-Set up the PHP environment required...
-
-```
-sudo apt-get install python-software-properties curl
-sudo apt-add-repository ppa:ondrej/php5
-sudo apt-get update
-sudo apt-get install php5-cli
-curl -sS https://getcomposer.org/installer | php
-sudo mv composer.phar /usr/local/bin/composer
-cd /vagrant
-composer install
-```
-
