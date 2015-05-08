@@ -15,4 +15,5 @@
     - php5
     - composer
     - phpcommon
+    - rabbitmq
     - app
