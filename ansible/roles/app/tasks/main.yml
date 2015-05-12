@@ -1,0 +1,5 @@
+---
+# application tasks to be customized and to run after the main provision
+
+- name: install app deps
+  composer: command=install working_dir=/vagrant
