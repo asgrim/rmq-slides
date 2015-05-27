@@ -20,7 +20,6 @@
   sudo: yes
   template: src=rabbitmq.config.tpl dest=/etc/rabbitmq/rabbitmq.config
   notify: restart rabbitmq
-  when: apache_version.stdout.find('Apache/2.4.') != -1
 
 - name: enable management console
   notify: restart rabbitmq
