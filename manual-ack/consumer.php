@@ -5,7 +5,7 @@ require_once '../common.php';
 use PhpAmqpLib\Message\AMQPMessage;
 
 $channel->queue_declare(
-  'test_queue', // Name of the queue
+  'manual_ack_queue', // Name of the queue
   false,
   true,         // Durable = survives restart
   false,
@@ -13,14 +13,17 @@ $channel->queue_declare(
 );
 
 $channel->basic_consume(
-	'test_queue',
+	'manual_ack_queue',
 	'',
 	false,
-	true, // No-ack - if true, we auto-acknowledge messages
+	false, // No-ack - if false, we must manually acknowledge
 	false, // Exclusive - no other consumers can use Q
 	false,
 	function(AMQPMessage $message) {
 		echo $message->body . "\n";
+        throw new Exception('oh noes!!!');
+
+        $message->delivery_info['channel']->basic_ack($message->delivery_info['delivery_tag']);
 	}
 );
 
