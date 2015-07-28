@@ -9,7 +9,7 @@ Prerequisites
 To use the VM as intended you need:
 
 * [Vagrant](http://docs.vagrantup.com/v2/installation/)
-* [Ansible](http://docs.ansible.com/intro_installation.html)
+* [Ansible](http://docs.ansible.com/intro_installation.html) (Note: Version 1.8+ required)
 
 Installation guide (Ubuntu)
 ===========================
@@ -18,6 +18,7 @@ Clone the repo and start the VM (provisions with ansible):
 
 ```shell
 $ git clone git@github.com:asgrim/rmq-slides.git
+$ cd rmq-slides
 $ vagrant up
 ```
 
