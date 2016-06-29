@@ -1,0 +1,14 @@
+{
+    "name": "asgrim/rmq-slides",
+    "description": "Some basic examples of using RabbitMQ with PHP",
+    "require": {
+        "php-amqplib/php-amqplib": "^2.6"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "James Titcumb",
+            "email": "james@asgrim.com"
+        }
+    ]
+}

@@ -5,7 +5,7 @@ require_once 'vendor/autoload.php';
 use PhpAmqpLib\Connection\AMQPConnection;
 
 $connection = new AMQPConnection(
-	'localhost',
+	'192.168.33.99',
 	5672,
 	'guest',
 	'guest',

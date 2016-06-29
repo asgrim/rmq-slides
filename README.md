@@ -26,6 +26,7 @@ $ git submodule update
 $ cd vm
 $ vagrant up
 $ cd ..
+$ composer install
 ```
 
 Usage
