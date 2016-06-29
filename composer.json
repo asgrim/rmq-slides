@@ -1,8 +1,0 @@
-{
-  "name": "asgrim/rabbitmq-examples",
-  "description": "Some basic examples of using RabbitMQ with PHP",
-  "license": "MIT",
-  "require": {
-    "videlalvaro/php-amqplib": "2.*"
-  }
-}
