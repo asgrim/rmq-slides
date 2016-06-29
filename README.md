@@ -3,6 +3,8 @@ RabbitMQ Examples
 
 This code examples and Vagrant VM are part of my presentation "Adding 1.21 Gigawatts to Applications with RabbitMQ".
 
+The VM is provided by a git submodule from the https://github.com/asgrim/rmq-vm repo.
+
 Prerequisites
 =============
 
@@ -19,22 +21,20 @@ Clone the repo and start the VM (provisions with ansible):
 ```shell
 $ git clone git@github.com:asgrim/rmq-slides.git
 $ cd rmq-slides
+$ git submodule init
+$ git submodule update
+$ cd vm
 $ vagrant up
-```
-
-When it finishes booting you can open a terminal to the VM using:
-
-```shell
-$ vagrant ssh
+$ cd ..
 ```
 
 Usage
 =====
 
-Once you're in the VM you can run the demos just like in the presentation, e.g.:
+Once the VM is booted you can run the demos just like in the presentation, e.g.:
 
 ```shell
-$ cd /vagrant/basic
+$ cd basic
 $ php producer.php
 $ php producer.php
 $ php consumer.php
